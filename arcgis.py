@@ -6,11 +6,11 @@ arcpy.env.overwriteOutput = True
 
 arcpy.env.workspace = "C:/Users/Shan Ye/Desktop/paleoclimate"
 
-allFields = arcpy.ListFields("C:/Users/Shan Ye/Desktop/paleoclimate/paleoclimate/anomaly_22ka_sim.shp", {"None"}, {"Double"})
+allFields = arcpy.ListFields("C:/Users/Shan Ye/Desktop/paleoclimate/paleoclimate/anomaly_new_sim.shp", {"None"}, {"Double"})
 
-points = "C:/Users/Shan Ye/Desktop/paleoclimate/paleoclimate/anomaly_22ka_sim.shp"
+points = "C:/Users/Shan Ye/Desktop/paleoclimate/paleoclimate/anomaly_new_sim.shp"
 
-refGrid = "C:/Users/Shan Ye/Desktop/paleoclimate/paleoclimate/ref_grid.shp"
+refGrid = "C:/Users/Shan Ye/Desktop/paleoclimate/paleoclimate/newGrid_8_12ka.shp"
 
 cellSize = 2000
 
