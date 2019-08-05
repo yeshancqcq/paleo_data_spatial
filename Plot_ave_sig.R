@@ -3,7 +3,7 @@ library(ggplot2)
 library(grid)
 library(dplyr)
 library(readr)
-data <- read_csv("C:/Users/Shan Ye/Desktop/paleoclimate/paleoclimate/plot_ave_sigma.csv")
+data <- read_csv("C:/Users/Shan Ye/Documents/GitHub/paleo_data_spatial/data/plot_ave_sigma.csv")
 
 plot_data <- data.frame(Years = data$`Years BP`, Average = data$Weighted_Average, Lower = data$Weighted_lower, Upper = data$Weighted_upper)
 
