@@ -38,3 +38,33 @@ for(i in 6:226){
   result$st_error[i-5] <- weighted_result
   cat("Processing t", i-6, "\n")
 }
+
+for(i in 1:nrow(result)){
+  result$time_plot[i] <- result$time[i] * 100
+  result$average_plot[i] <- as.numeric(result$average[i])
+  result$upper[i] <- as.numeric(result$average[i]) + result$st_error[i]
+  result$lower[i] <- as.numeric(result$average[i]) - result$st_error[i]
+}
+
+plot_data <- data.frame(Years = result$time_plot, Average = result$average_plot, Lower = result$lower, Upper = result$upper)
+
+ave <- ggplot()+
+  geom_ribbon(data=plot_data, aes(x=Years, ymin=Lower, ymax=Upper),fill="#71afd1", alpha=0.5)+
+  geom_line(data=plot_data, aes(x=Years, y=Average), size = 0.5, colour ="#6868a8")+
+  labs(y = "Anomaly (Celsius)",
+       x = "Time (Years BP)",
+       colour = "Legend") +
+  ggtitle("Global Avereage Temperature Anomaly, Area Weighted","Anomaly reference: the average temperature from 8ka to 12 ka")+
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black"),
+        axis.title.x=element_text(size=10),
+        axis.title.y=element_text(size=10)
+  ) +
+  scale_x_reverse(limits = c(22000, 0))+
+  scale_y_continuous(breaks = c(-4, -3, -2, -1, 0, 1))+
+  annotate("text", x = 20000, y = -5, label = "1-Sigma Uncertainty", size = 3 ,colour = "#457a96")+
+  geom_hline(yintercept=0, linetype="dashed", color = "red")+
+  geom_vline(xintercept=12000, linetype="dashed", color = "red")+
+  geom_vline(xintercept=8000, linetype="dashed", color = "red")
+
+ave
