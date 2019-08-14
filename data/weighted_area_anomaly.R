@@ -2,6 +2,8 @@ library(readr)
 library(ggplot2)
 library(stats)
 
+# Set working directory to the source folder
+
 raw_data <- read_csv("raw_data.csv")
 result <- data.frame(matrix(vector(), 221, 5, dimnames=list(c(), c("time", "total_area", "total_anomaly_area", "average", "st_error"))))
 
