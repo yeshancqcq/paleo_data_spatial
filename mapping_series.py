@@ -22,6 +22,8 @@ for raster in rasterList:
 
     print ("Starting the processing " + raster)
 
+    titleAge = str(raster[1:])
+
     #arcpy.ApplySymbologyFromLayer_management(raster, "symbol")
     
     # Set layer name of this raster
@@ -36,7 +38,7 @@ for raster in rasterList:
     layerToUpdate = arcpy.mapping.ListLayers(mxd, "this_layer", df)[0] 
 
     # Add title to the map
-    titleStr = str("Global Data-Model Temperature Anomaly Differences at " + raster +" (Years BP)")
+    titleStr = str("Global Data-Model Temperature Anomaly Differences at " + titleAge +" Years BP")
     titleItem = arcpy.mapping.ListLayoutElements(mxd, "TEXT_ELEMENT", "title")[0]
     titleItem.text = titleStr 
 
@@ -44,7 +46,7 @@ for raster in rasterList:
     arcpy.ApplySymbologyFromLayer_management(layerToUpdate, "C:/Users/Shan Ye/Documents/GitHub/paleo_data_spatial/symbol.lyr")
 
     # Set the save directory of the map
-    mapstr = str("C:/Users/Shan Ye/Documents/GitHub/paleo_data_spatial/anomaly_diff_map/" + raster + ".jpg")
+    mapstr = str("C:/Users/Shan Ye/Documents/GitHub/paleo_data_spatial/anomaly_diff_map/" + titleAge + ".jpg")
 
     # Export map
     arcpy.mapping.ExportToJPEG(mxd, mapstr)
