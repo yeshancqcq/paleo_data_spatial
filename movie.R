@@ -11,4 +11,4 @@ saveVideo({
     plot(as.raster(im))
   }  
 },
-video.name = "model-proxy.mp4")
+video.name = "model-proxy-mov.mp4",other.opts = '-b 400k')
