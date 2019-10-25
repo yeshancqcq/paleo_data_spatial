@@ -8,3 +8,9 @@ Model raw data output: Feng_model_new.csv
 Model anomaly data: Feng_model_anomaly.csv
 
 Differences between model and data anomaly: average_data_model_proxygrids.csv
+
+Regional model data: model_region.csv
+
+Regional proxy data: proxy_region.csv
+
+Regional diff data: regional_all.csv
