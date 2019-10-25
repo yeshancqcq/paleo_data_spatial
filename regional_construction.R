@@ -1849,3 +1849,6 @@ for(i in 1:220){
   #change here
   proxy_region$s_atlantic[i]<-temp[i,x+2]
 }
+
+write.csv(proxy_region,"proxy_region.csv")
+write.csv(model_region,"model_region.csv")
