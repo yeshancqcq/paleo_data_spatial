@@ -37,6 +37,7 @@ for(row in 1:220){
     diff[row,col] <- as.numeric(model[row,col]) - as.numeric(proxy[row,col])
   }
 }
+write.csv(diff,"diff_regional.csv")
 
 diff$time <- model$time
 proxy$time <- model$time
