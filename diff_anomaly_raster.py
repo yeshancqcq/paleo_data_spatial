@@ -7,7 +7,7 @@ arcpy.env.overwriteOutput = True
 arcpy.env.workspace = "C:/Users/Shan Ye/Documents/GitHub/paleo_data_spatial"
 polygon = "C:/Users/Shan Ye/Documents/GitHub/paleo_data_spatial/data/diff_anomaly.shp"
 
-allFields = arcpy.ListFields("C:/Users/Shan Ye/Documents/GitHub/paleo_data_spatial/data/diff_anomaly.shp", {"None"}, {"Double"})
+allFields = arcpy.ListFields("C:/Users/Shan Ye/Documents/GitHub/paleo_data_spatial/data/diff_anomaly_new.shp", {"None"}, {"Double"})
 
 for field in allFields:
 
