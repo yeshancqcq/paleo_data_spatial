@@ -185,7 +185,7 @@ temp$X1 <- seq(100,22000,100)
 k <- 2
 for(i in 1:nrow(proxy_data)){
   #here: model and proxy doesn't matter
-  if(model_data$PageName[i] == "C28" ||model_data$PageName[i] =="D29"){
+  if(proxy_data$PageName[i] == "C28" ||proxy_data$PageName[i] =="D29"){
     for(j in 1:220){
       temp[j,k]<-proxy_data[i,j+5]
     }
@@ -263,11 +263,11 @@ temp <- data.frame(matrix(vector(),220,7))
 temp$X1 <- seq(100,22000,100)
 k <- 2
 for(i in 1:nrow(proxy_data)){
-  if(model_data$PageName[i] == "J65" ||
-     model_data$PageName[i] =="K65" ||
-     model_data$PageName[i] =="L62" ||
-     model_data$PageName[i] =="L64" ||
-     model_data$PageName[i] =="M62" 
+  if(proxy_data$PageName[i] == "J65" ||
+     proxy_data$PageName[i] =="K65" ||
+     proxy_data$PageName[i] =="L62" ||
+     proxy_data$PageName[i] =="L64" ||
+     proxy_data$PageName[i] =="M62" 
   ){
     for(j in 1:220){
       #change here
@@ -354,14 +354,14 @@ temp <- data.frame(matrix(vector(),220,x+2))
 temp$X1 <- seq(100,22000,100)
 k <- 2
 for(i in 1:nrow(proxy_data)){
-  if(model_data$PageName[i] == "K34" ||
-     model_data$PageName[i] =="K35" ||
-     model_data$PageName[i] =="K36" ||
-     model_data$PageName[i] =="K39" ||
-     model_data$PageName[i] =="K40" ||
-     model_data$PageName[i] =="L43" ||
-     model_data$PageName[i] =="M43" ||
-     model_data$PageName[i] =="J40" 
+  if(proxy_data$PageName[i] == "K34" ||
+     proxy_data$PageName[i] =="K35" ||
+     proxy_data$PageName[i] =="K36" ||
+     proxy_data$PageName[i] =="K39" ||
+     proxy_data$PageName[i] =="K40" ||
+     proxy_data$PageName[i] =="L43" ||
+     proxy_data$PageName[i] =="M43" ||
+     proxy_data$PageName[i] =="J40" 
   ){
     for(j in 1:220){
       #change here
@@ -445,11 +445,11 @@ temp <- data.frame(matrix(vector(),220,x+2))
 temp$X1 <- seq(100,22000,100)
 k <- 2
 for(i in 1:nrow(proxy_data)){
-  if(model_data$PageName[i] == "E3" ||
-     model_data$PageName[i] =="E5" ||
-     model_data$PageName[i] =="E9" ||
-     model_data$PageName[i] =="F3" ||
-     model_data$PageName[i] =="F9" 
+  if(proxy_data$PageName[i] == "E3" ||
+     proxy_data$PageName[i] =="E5" ||
+     proxy_data$PageName[i] =="E9" ||
+     proxy_data$PageName[i] =="F3" ||
+     proxy_data$PageName[i] =="F9" 
   ){
     for(j in 1:220){
       #change here
@@ -534,12 +534,12 @@ temp <- data.frame(matrix(vector(),220,x+2))
 temp$X1 <- seq(100,22000,100)
 k <- 2
 for(i in 1:nrow(proxy_data)){
-  if(model_data$PageName[i] == "J25" ||
-     model_data$PageName[i] =="J27" ||
-     model_data$PageName[i] =="K22" ||
-     model_data$PageName[i] =="K30" ||
-     model_data$PageName[i] =="L21" ||
-     model_data$PageName[i] =="L25"  
+  if(proxy_data$PageName[i] == "J25" ||
+     proxy_data$PageName[i] =="J27" ||
+     proxy_data$PageName[i] =="K22" ||
+     proxy_data$PageName[i] =="K30" ||
+     proxy_data$PageName[i] =="L21" ||
+     proxy_data$PageName[i] =="L25"  
   ){
     for(j in 1:220){
       #change here
@@ -624,12 +624,12 @@ temp <- data.frame(matrix(vector(),220,x+2))
 temp$X1 <- seq(100,22000,100)
 k <- 2
 for(i in 1:nrow(proxy_data)){
-  if(model_data$PageName[i] == "E33" ||
-     model_data$PageName[i] =="E32" ||
-     model_data$PageName[i] =="F33" ||
-     model_data$PageName[i] =="G31" ||
-     model_data$PageName[i] =="G34" ||
-     model_data$PageName[i] =="H34"  
+  if(proxy_data$PageName[i] == "E33" ||
+     proxy_data$PageName[i] =="E32" ||
+     proxy_data$PageName[i] =="F33" ||
+     proxy_data$PageName[i] =="G31" ||
+     proxy_data$PageName[i] =="G34" ||
+     proxy_data$PageName[i] =="H34"  
   ){
     for(j in 1:220){
       #change here
@@ -712,10 +712,10 @@ temp <- data.frame(matrix(vector(),220,x+2))
 temp$X1 <- seq(100,22000,100)
 k <- 2
 for(i in 1:nrow(proxy_data)){
-  if(model_data$PageName[i] == "Q59" ||
-     model_data$PageName[i] =="Q61" ||
-     model_data$PageName[i] =="Q62" ||
-     model_data$PageName[i] =="N60"   
+  if(proxy_data$PageName[i] == "Q59" ||
+     proxy_data$PageName[i] =="Q61" ||
+     proxy_data$PageName[i] =="Q62" ||
+     proxy_data$PageName[i] =="N60"   
   ){
     for(j in 1:220){
       #change here
@@ -801,13 +801,13 @@ temp <- data.frame(matrix(vector(),220,x+2))
 temp$X1 <- seq(100,22000,100)
 k <- 2
 for(i in 1:nrow(proxy_data)){
-  if(model_data$PageName[i] == "S60" ||
-     model_data$PageName[i] =="T57" ||
-     model_data$PageName[i] =="T59" ||
-     model_data$PageName[i] =="T60" ||
-     model_data$PageName[i] =="T63" ||
-     model_data$PageName[i] =="U61" ||
-     model_data$PageName[i] =="U62"  
+  if(proxy_data$PageName[i] == "S60" ||
+     proxy_data$PageName[i] =="T57" ||
+     proxy_data$PageName[i] =="T59" ||
+     proxy_data$PageName[i] =="T60" ||
+     proxy_data$PageName[i] =="T63" ||
+     proxy_data$PageName[i] =="U61" ||
+     proxy_data$PageName[i] =="U62"  
   ){
     for(j in 1:220){
       #change here
@@ -890,10 +890,10 @@ temp <- data.frame(matrix(vector(),220,x+2))
 temp$X1 <- seq(100,22000,100)
 k <- 2
 for(i in 1:nrow(proxy_data)){
-  if(model_data$PageName[i] == "AG37" ||
-     model_data$PageName[i] =="AG61" ||
-     model_data$PageName[i] =="AH44" ||
-     model_data$PageName[i] =="AH58" 
+  if(proxy_data$PageName[i] == "AG37" ||
+     proxy_data$PageName[i] =="AG61" ||
+     proxy_data$PageName[i] =="AH44" ||
+     proxy_data$PageName[i] =="AH58" 
   ){
     for(j in 1:220){
       #change here
@@ -974,8 +974,8 @@ temp <- data.frame(matrix(vector(),220,4))
 temp$X1 <- seq(100,22000,100)
 k <- 2
 for(i in 1:nrow(proxy_data)){
-  if(model_data$PageName[i] == "AA22" ||
-     model_data$PageName[i] =="Y22"  
+  if(proxy_data$PageName[i] == "AA22" ||
+     proxy_data$PageName[i] =="Y22"  
   ){
     for(j in 1:220){
       #change here
@@ -1060,11 +1060,11 @@ temp <- data.frame(matrix(vector(),220,x+2))
 temp$X1 <- seq(100,22000,100)
 k <- 2
 for(i in 1:nrow(proxy_data)){
-  if(model_data$PageName[i] == "S19" ||
-     model_data$PageName[i] =="S20" ||
-     model_data$PageName[i] =="Q20" ||
-     model_data$PageName[i] =="R18" ||
-     model_data$PageName[i] =="R19"
+  if(proxy_data$PageName[i] == "S19" ||
+     proxy_data$PageName[i] =="S20" ||
+     proxy_data$PageName[i] =="Q20" ||
+     proxy_data$PageName[i] =="R18" ||
+     proxy_data$PageName[i] =="R19"
   ){
     for(j in 1:220){
       #change here
@@ -1148,11 +1148,11 @@ temp <- data.frame(matrix(vector(),220,x+2))
 temp$X1 <- seq(100,22000,100)
 k <- 2
 for(i in 1:nrow(proxy_data)){
-  if(model_data$PageName[i] == "M18" ||
-     model_data$PageName[i] =="M19" ||
-     model_data$PageName[i] =="P21" ||
-     model_data$PageName[i] =="P23" ||
-     model_data$PageName[i] =="P24"
+  if(proxy_data$PageName[i] == "M18" ||
+     proxy_data$PageName[i] =="M19" ||
+     proxy_data$PageName[i] =="P21" ||
+     proxy_data$PageName[i] =="P23" ||
+     proxy_data$PageName[i] =="P24"
   ){
     for(j in 1:220){
       #change here
@@ -1233,8 +1233,8 @@ temp <- data.frame(matrix(vector(),220,x+2))
 temp$X1 <- seq(100,22000,100)
 k <- 2
 for(i in 1:nrow(proxy_data)){
-  if(model_data$PageName[i] == "J11" ||
-     model_data$PageName[i] =="J12" 
+  if(proxy_data$PageName[i] == "J11" ||
+     proxy_data$PageName[i] =="J12" 
   ){
     for(j in 1:220){
       #change here
@@ -1320,13 +1320,13 @@ temp <- data.frame(matrix(vector(),220,x+2))
 temp$X1 <- seq(100,22000,100)
 k <- 2
 for(i in 1:nrow(proxy_data)){
-  if(model_data$PageName[i] == "G38" ||
-     model_data$PageName[i] =="G39" ||
-     model_data$PageName[i] =="E38" ||
-     model_data$PageName[i] =="E40" ||
-     model_data$PageName[i] =="E41" ||
-     model_data$PageName[i] =="D42" ||
-     model_data$PageName[i] =="C39" 
+  if(proxy_data$PageName[i] == "G38" ||
+     proxy_data$PageName[i] =="G39" ||
+     proxy_data$PageName[i] =="E38" ||
+     proxy_data$PageName[i] =="E40" ||
+     proxy_data$PageName[i] =="E41" ||
+     proxy_data$PageName[i] =="D42" ||
+     proxy_data$PageName[i] =="C39" 
   ){
     for(j in 1:220){
       #change here
@@ -1408,9 +1408,9 @@ temp <- data.frame(matrix(vector(),220,x+2))
 temp$X1 <- seq(100,22000,100)
 k <- 2
 for(i in 1:nrow(proxy_data)){
-  if(model_data$PageName[i] == "R38" ||
-     model_data$PageName[i] =="T39" ||
-     model_data$PageName[i] =="V39"
+  if(proxy_data$PageName[i] == "R38" ||
+     proxy_data$PageName[i] =="T39" ||
+     proxy_data$PageName[i] =="V39"
   ){
     for(j in 1:220){
       #change here
@@ -1491,8 +1491,8 @@ temp <- data.frame(matrix(vector(),220,x+2))
 temp$X1 <- seq(100,22000,100)
 k <- 2
 for(i in 1:nrow(proxy_data)){
-  if(model_data$PageName[i] == "P47" ||
-     model_data$PageName[i] =="P48" 
+  if(proxy_data$PageName[i] == "P47" ||
+     proxy_data$PageName[i] =="P48" 
   ){
     for(j in 1:220){
       #change here
@@ -1572,7 +1572,7 @@ temp <- data.frame(matrix(vector(),220,x+2))
 temp$X1 <- seq(100,22000,100)
 k <- 2
 for(i in 1:nrow(proxy_data)){
-  if(model_data$PageName[i] == "T42" 
+  if(proxy_data$PageName[i] == "T42" 
   ){
     for(j in 1:220){
       #change here
@@ -1652,7 +1652,7 @@ temp <- data.frame(matrix(vector(),220,x+2))
 temp$X1 <- seq(100,22000,100)
 k <- 2
 for(i in 1:nrow(proxy_data)){
-  if(model_data$PageName[i] == "L59" 
+  if(proxy_data$PageName[i] == "L59" 
   ){
     for(j in 1:220){
       #change here
@@ -1732,7 +1732,7 @@ temp <- data.frame(matrix(vector(),220,x+2))
 temp$X1 <- seq(100,22000,100)
 k <- 2
 for(i in 1:nrow(proxy_data)){
-  if(model_data$PageName[i] == "Z64" 
+  if(proxy_data$PageName[i] == "Z64" 
   ){
     for(j in 1:220){
       #change here
@@ -1814,9 +1814,9 @@ temp <- data.frame(matrix(vector(),220,x+2))
 temp$X1 <- seq(100,22000,100)
 k <- 2
 for(i in 1:nrow(proxy_data)){
-  if(model_data$PageName[i] == "X39" ||
-     model_data$PageName[i] =="AA38" ||
-     model_data$PageName[i] =="AB38"
+  if(proxy_data$PageName[i] == "X39" ||
+     proxy_data$PageName[i] =="AA38" ||
+     proxy_data$PageName[i] =="AB38"
   ){
     for(j in 1:220){
       #change here
