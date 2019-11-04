@@ -1,7 +1,7 @@
 library(plyr)
 library(readr)
 
-model_anomaly <- read_csv("Feng_model_anomaly.csv")
+model_anomaly <- read_csv("Feng_model_anomaly_sort.csv")
 proxy_anomaly <- read_csv("raw_data_anomaly_cal.csv")
 
 diff_anomaly <- proxy_anomaly

@@ -20,26 +20,27 @@ library(ggpubr)
 
 my.cols <- brewer.pal(9, "Blues")
 
-data_model_diff <- read_csv("GitHub/paleo_data_spatial/data/data_model_anomaly_diff.csv")
+data_model_diff <- read_csv("data/data_model_anomaly_diff.csv")
 
 world <- map_data("world")
 
-regions <- read_csv("GitHub/paleo_data_spatial/regional_all.csv")
+regions <- read_csv("data/diff_regional.csv")
 
 #spdf <- geojson_read("GitHub/yeshancqcq.github.io/anomaly/data/diff_anomaly.json",  what = "sp")
 #spdf_anomaly_diff <- tidy(spdf)
-anomal_diff=readShapePoly("GitHub/paleo_data_spatial/data/diff_anomaly.shp",verbose=TRUE)
+anomal_diff=readShapePoly("data/diff_anomaly.shp",verbose=TRUE)
 ad_df <- fortify(anomal_diff)
 ad_df$X1_1 <- factor(ad_df$id)
 ad_df$id <- NULL
 plot.data <- merge(ad_df, data_model_diff, by = "X1_1")
+
 
 for(i in seq(233, 14, -1)){
   yr <- (i-13)*100
   gg.data <- data.frame(long=plot.data[,2], lat=plot.data[,3], group=plot.data[,7], time=plot.data[,i])
   plot1 <- ggplot() + 
     geom_polygon(data = world, aes(x=long, y = lat, group = group),color = NA, fill = 'gray80', alpha=0.5) +
-    coord_fixed(1.5)+
+    coord_fixed(xlim = c(-180, 180),  ylim = c(-90,90), ratio = 1.5)+
     geom_polygon(data = gg.data, 
                  aes(x = long, y = lat, group = group, fill= time),
                  color = NA, size = .2)+
@@ -47,8 +48,8 @@ for(i in seq(233, 14, -1)){
           panel.background = element_rect(colour = "black", fill="gray65"), 
           axis.line = element_line(colour = "black"))+
     scale_fill_gradient2(low="#1c579e",high="#9e1c1c",mid="white",limits=c(-10,10), na.value = NA)+
-    scale_x_continuous(limits = c(-180,180), breaks = scales::pretty_breaks(n = 10))+
-    scale_y_continuous(limits = c(-90,90), breaks = scales::pretty_breaks(n = 10))+
+    #scale_x_continuous(limits = c(-180,180), breaks = scales::pretty_breaks(n = 10))+
+    #scale_y_continuous(limits = c(-90,90), breaks = scales::pretty_breaks(n = 10))+
     annotate("text", x = -160, y = 85, label = paste(as.character(yr), " Years BP"), size = 3, colour = "black", alpha = 0.6) +
     labs(y = "Latitude",
          x = "Longitude",
@@ -56,29 +57,29 @@ for(i in seq(233, 14, -1)){
     ggtitle("Temperature Anomaly Difference") 
   
   
-  regions.plot <-  subset(regions, Time >= yr)
+  regions.plot <-  subset(regions, time >= yr)
   plot2 <- ggplot()+
-    geom_line(data=regions.plot,aes(Time, Caribbean, colour = "Caribbean and Gulf of Mexico"), size = 0.5)+
-    geom_line(data=regions.plot,aes(Time, China, colour = "North Central China"), size = 0.5)+
-    geom_line(data=regions.plot,aes(Time, New_Zealand, colour = "New Zealand"), size = 0.5)+
-    geom_line(data=regions.plot,aes(Time, Alaska, colour = "Alaska"), size = 0.5)+
-    geom_line(data=regions.plot,aes(Time, Antarctica, colour = "Antarctica"), size = 0.5)+
-    geom_line(data=regions.plot,aes(Time, Japan, colour = "Japan and E. China Sea"), size = 0.5)+
-    geom_line(data=regions.plot,aes(Time, Indonesia, colour = "Indonesia"), size = 0.5)+
-    geom_line(data=regions.plot,aes(Time, Mediterranean, colour = "Mediterranean Sea"), size = 0.5)+
-    geom_line(data=regions.plot,aes(Time, Philippines, colour = "Philippines and S. China Sea"), size = 0.5)+
-    geom_line(data=regions.plot,aes(Time, South_Atlantic, colour = "S. Atlantic"), size = 0.5)+
-    geom_line(data=regions.plot,aes(Time, Tropical_E_Pacific, colour = "Tropical E. Pacific"), size = 0.5)+
-    geom_line(data=regions.plot,aes(Time, N_Atlantic, colour = "N. Atlantic"), size = 0.5)+
-    geom_line(data=regions.plot,aes(Time, S_Australia, colour = "S. Australia"), size = 0.5)+
-    geom_line(data=regions.plot,aes(Time, Offshore_oregon, colour = "Offshore Oregon"), size = 0.5)+
-    geom_line(data=regions.plot,aes(Time, Scandinavia, colour = "Scandinavia and Svalbard"), size = 0.5)+
-    geom_line(data=regions.plot,aes(Time, Iceland, colour = "Iceland and British Isles"), size = 0.5)+
-    geom_line(data=regions.plot,aes(Time, Greenland, colour = "Greenland"), size = 0.5)+
-    geom_line(data=regions.plot,aes(Time, C_Africa, colour = "Congo"), size = 0.5)+
-    geom_line(data=regions.plot,aes(Time, W_Africa_coast, colour = "Tropical W. African Coast"), size = 0.5)+
-    geom_line(data=regions.plot,aes(Time, Arabian_sea, colour = "Arabian Sea"), size = 0.5)+
-    geom_line(data=regions.plot,aes(Time, W_S_America, colour = "W. South American Coast"), size = 0.5)+
+    geom_line(data=regions.plot,aes(time, gulf_of_mexico, colour = "Caribbean and Gulf of Mexico"), size = 0.5)+
+    geom_line(data=regions.plot,aes(time, china, colour = "North Central China"), size = 0.5)+
+    geom_line(data=regions.plot,aes(time, new_zealand, colour = "New Zealand"), size = 0.5)+
+    geom_line(data=regions.plot,aes(time, alaska, colour = "Alaska"), size = 0.5)+
+    geom_line(data=regions.plot,aes(time, antarctica, colour = "Antarctica"), size = 0.5)+
+    geom_line(data=regions.plot,aes(time, japan, colour = "Japan and E. China Sea"), size = 0.5)+
+    geom_line(data=regions.plot,aes(time, indonesia, colour = "Indonesia"), size = 0.5)+
+    geom_line(data=regions.plot,aes(time, mediterranean, colour = "Mediterranean Sea"), size = 0.5)+
+    geom_line(data=regions.plot,aes(time, philippines, colour = "Philippines and S. China Sea"), size = 0.5)+
+    geom_line(data=regions.plot,aes(time, s_atlantic, colour = "S. Atlantic"), size = 0.5)+
+    geom_line(data=regions.plot,aes(time, e_pacific, colour = "Tropical E. Pacific"), size = 0.5)+
+    geom_line(data=regions.plot,aes(time, n_atlantic, colour = "N. Atlantic"), size = 0.5)+
+    geom_line(data=regions.plot,aes(time, s_australia, colour = "S. Australia"), size = 0.5)+
+    geom_line(data=regions.plot,aes(time, oregon, colour = "Offshore Oregon"), size = 0.5)+
+    geom_line(data=regions.plot,aes(time, scandinavia, colour = "Scandinavia and Svalbard"), size = 0.5)+
+    geom_line(data=regions.plot,aes(time, iceland, colour = "Iceland and British Isles"), size = 0.5)+
+    geom_line(data=regions.plot,aes(time, greenland, colour = "Greenland"), size = 0.5)+
+    geom_line(data=regions.plot,aes(time, congo, colour = "Congo"), size = 0.5)+
+    geom_line(data=regions.plot,aes(time, w_africa, colour = "Tropical W. African Coast"), size = 0.5)+
+    geom_line(data=regions.plot,aes(time, arabean_sea, colour = "Arabian Sea"), size = 0.5)+
+    geom_line(data=regions.plot,aes(time, s_america, colour = "W. South American Coast"), size = 0.5)+
     scale_y_continuous(name = expression("Anomaly Differences (°C)"), 
                        limits = c(-10, 20),
                        breaks = scales::pretty_breaks(n = 10))+
@@ -127,7 +128,7 @@ for(i in seq(233, 14, -1)){
     #annotate("text", x = 10000, y = 18, label = "Temperature Anomaly Difference = Model Anomaly - Proxy Anomaly (Weighted to Grid Area)", size = 3, colour = "black", alpha = 1)+
     annotate("text", x = 20000, y = 18, label = paste(as.character(yr), " Years BP"), size = 3, colour = "black", alpha = 1)
  
-   cat(as.character(yr), " Years BP")
+   cat(as.character(yr), " Years BP", "\n")
    
    #grid.arrange(plot2, plot1, ncol=1, nrow=2)
    ggarrange(plot1, plot2, heights = c(2.4, 1.2),

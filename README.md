@@ -14,3 +14,5 @@ Regional model data: model_region.csv
 Regional proxy data: proxy_region.csv
 
 Regional diff data: regional_all.csv
+
+Proxy raw data and anomaly data are in GEO_420 folder
