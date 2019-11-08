@@ -7,6 +7,13 @@ model_anomaly <- model_anomaly[-1]
 model_data <- model_anomaly
 proxy_data <- read_csv("proxy_anomaly.csv")
 
+proxy_data2 <- proxy_data[,6:226]
+proxy_data2$sum <- rowSums (proxy_data2, na.rm = TRUE, dims = 1)
+proxy_data$sum <- proxy_data2$sum
+
+# O79 1080
+# W72 1656
+
 proxy_region <- data.frame(
   (matrix(vector(), 220, 22, dimnames=list(
     c(), 
