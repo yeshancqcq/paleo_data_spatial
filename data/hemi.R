@@ -332,16 +332,16 @@ plot_data <- data.frame(time=proxy_hemi$time, proxy=proxy_hemi$NH, model=model_h
 plot <- ggplot()+
   geom_line(data=plot_data,aes(time, proxy, colour = "Anomaly in Proxy Data"))+
   geom_line(data=plot_data,aes(time, model, colour = "Anomaly in Model Data"))+
-  geom_line(data=plot_data,aes(time, diff+10, colour = "Model - Proxy"))+
+  geom_line(data=plot_data,aes(time, diff+5, colour = "Model - Proxy"))+
   scale_colour_manual(values = c(
     'Anomaly in Proxy Data' = 'blue',
     'Anomaly in Model Data' = 'red',
     'Model - Proxy' = 'purple'
   ))+  
   geom_hline(yintercept = 0, size = 0.6, linetype='dotted') +
-  geom_hline(yintercept = 10, size = 0.6, linetype='dotted', colour="purple") +
-  scale_y_continuous(name = expression("Temperature Anomaly (°C)"), limits = c(-22, 30), 
-                     sec.axis = sec_axis(~.-10, name = "Anomaly Differences (°C)"))+
+  geom_hline(yintercept = 5, size = 0.6, linetype='dotted', colour="purple") +
+  scale_y_continuous(name = expression("Temperature Anomaly (°C)"), limits = c(-7, 10), 
+                     sec.axis = sec_axis(~.-5, name = "Anomaly Differences (°C)"))+
   labs(y = "Anomaly",
        x = "Time (Years BP)",
        colour = 'Legend') +
@@ -371,16 +371,16 @@ plot_data <- data.frame(time=proxy_hemi$time, proxy=proxy_hemi$Tropical, model=m
 plot <- ggplot()+
   geom_line(data=plot_data,aes(time, proxy, colour = "Anomaly in Proxy Data"))+
   geom_line(data=plot_data,aes(time, model, colour = "Anomaly in Model Data"))+
-  geom_line(data=plot_data,aes(time, diff+10, colour = "Model - Proxy"))+
+  geom_line(data=plot_data,aes(time, diff+5, colour = "Model - Proxy"))+
   scale_colour_manual(values = c(
     'Anomaly in Proxy Data' = 'blue',
     'Anomaly in Model Data' = 'red',
     'Model - Proxy' = 'purple'
   ))+  
   geom_hline(yintercept = 0, size = 0.6, linetype='dotted') +
-  geom_hline(yintercept = 10, size = 0.6, linetype='dotted', colour="purple") +
-  scale_y_continuous(name = expression("Temperature Anomaly (°C)"), limits = c(-22, 30), 
-                     sec.axis = sec_axis(~.-10, name = "Anomaly Differences (°C)"))+
+  geom_hline(yintercept = 5, size = 0.6, linetype='dotted', colour="purple") +
+  scale_y_continuous(name = expression("Temperature Anomaly (°C)"), limits = c(-7, 10), 
+                     sec.axis = sec_axis(~.-5, name = "Anomaly Differences (°C)"))+
   labs(y = "Anomaly",
        x = "Time (Years BP)",
        colour = 'Legend') +
@@ -409,16 +409,16 @@ plot_data <- data.frame(time=proxy_hemi$time, proxy=proxy_hemi$SH, model=model_h
 plot <- ggplot()+
   geom_line(data=plot_data,aes(time, proxy, colour = "Anomaly in Proxy Data"))+
   geom_line(data=plot_data,aes(time, model, colour = "Anomaly in Model Data"))+
-  geom_line(data=plot_data,aes(time, diff+10, colour = "Model - Proxy"))+
+  geom_line(data=plot_data,aes(time, diff+5, colour = "Model - Proxy"))+
   scale_colour_manual(values = c(
     'Anomaly in Proxy Data' = 'blue',
     'Anomaly in Model Data' = 'red',
     'Model - Proxy' = 'purple'
   ))+  
   geom_hline(yintercept = 0, size = 0.6, linetype='dotted') +
-  geom_hline(yintercept = 10, size = 0.6, linetype='dotted', colour="purple") +
-  scale_y_continuous(name = expression("Temperature Anomaly (°C)"), limits = c(-22, 30), 
-                     sec.axis = sec_axis(~.-10, name = "Anomaly Differences (°C)"))+
+  geom_hline(yintercept = 5, size = 0.6, linetype='dotted', colour="purple") +
+  scale_y_continuous(name = expression("Temperature Anomaly (°C)"), limits = c(-7, 10), 
+                     sec.axis = sec_axis(~.-5, name = "Anomaly Differences (°C)"))+
   labs(y = "Anomaly",
        x = "Time (Years BP)",
        colour = 'Legend') +
