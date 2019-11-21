@@ -49,7 +49,8 @@ diff_hemi <- data.frame(
 model_hemi$time = seq(100,22000,100)
 proxy_hemi$time = seq(100,22000,100)
 
-proxy_data2 <- proxy_data[,6:226]
+proxy_data2 <- proxy_data[,6:225]
+
 proxy_data2$sum <- rowSums (proxy_data2, na.rm = TRUE, dims = 1)
 proxy_data$sum <- proxy_data2$sum
 
@@ -61,13 +62,13 @@ grid_Tropical <- vector()
 grid_SH <- vector()
 
 for(i in 1:nrow(proxy_data)){
-  if(proxy_data$sum[i] != 0 && proxy_data$PageNumber[i] <= 1080){
+  if(proxy_data$sum[i] != 0 && proxy_data$PageNumber[i] <= 864){
     NH <- NH + 1
     grid_NH <- c(grid_NH, proxy_data$PageName[i])
-  } else if (proxy_data$sum[i] != 0 && proxy_data$PageNumber[i] <= 1656) {
+  } else if (proxy_data$sum[i] != 0 && proxy_data$PageNumber[i] <= 1728) {
     Tropical <- Tropical + 1
     grid_Tropical <- c(grid_Tropical, proxy_data$PageName[i])
-  } else if (proxy_data$sum[i] != 0 && proxy_data$PageNumber[i] > 1080) {
+  } else if (proxy_data$sum[i] != 0 && proxy_data$PageNumber[i] > 864) {
     SH <- SH + 1
     grid_SH <- c(grid_SH, proxy_data$PageName[i])
   }
@@ -315,11 +316,109 @@ for(i in 1:220){
   proxy_hemi$SH[i]<-temp[i,x+2]
 }
 
+#======global======================
+
+x = NH + SH + Tropical
+#model
+#change here
+temp <- data.frame(matrix(vector(),220,x+2))
+temp$X1 <- seq(100,22000,100)
+k <- 2
+for(i in 1:nrow(proxy_data)){
+  if(model_data$PageName[i] %in% grid_NH||
+     model_data$PageName[i] %in% grid_SH||
+     model_data$PageName[i] %in% grid_Tropical
+  ){
+    for(j in 1:220){
+      temp[j,k]<-model_data[i,j+5]
+    }
+    k <- 1+k
+    cat("finishing ", model_data$PageName[i] )
+  }
+}
+#average
+for(row in 1:nrow(temp)){
+  ct <- 0
+  sum <- 0
+  #change here
+  for(col in 2:(x+1)){
+    sum <- sum + temp[row,col]
+    if(temp[row,col]!=0){
+      ct <- ct + 1
+    }
+  }
+  if(ct==0){
+    temp[row,x+2]<-NA
+  } else{
+    temp[row,x+2]<-sum/ct
+  }
+  cat("finishing row ", i, "; ")
+}
+
+for(i in 1:220){
+  model_hemi$Global[i]<-temp[i,x+2]
+}
+
+#proxy
+#change here
+temp <- data.frame(matrix(vector(),220,x+2))
+temp$X1 <- seq(100,22000,100)
+k <- 2
+for(i in 1:nrow(proxy_data)){
+  if(proxy_data$PageName[i] %in% grid_NH||
+     proxy_data$PageName[i] %in% grid_SH||
+     proxy_data$PageName[i] %in% grid_Tropical
+  ){
+    for(j in 1:220){
+      #change here
+      temp[j,k]<-proxy_data[i,j+5]
+    }
+    k <- 1+k
+    cat("finishing ", model_data$PageName[i] )
+  }
+}
+#average
+for(row in 1:nrow(temp)){
+  ct <- 0
+  sum <- 0
+  for(col in 2:(x+1)){
+    sum <- sum + temp[row,col]
+    if(temp[row,col]!=0){
+      ct <- ct + 1
+    }
+  }
+  if(ct==0){
+    #change here
+    temp[row,x+2]<-NA
+  } else{
+    temp[row,x+2]<-sum/ct
+  }
+  cat("finishing row ", i, "; ")
+}
+
+for(i in 1:220){
+  #change here
+  proxy_hemi$Global[i]<-temp[i,x+2]
+}
+
+
+
+
+
+
+
+
+#++++++++++++++plot+++++++++++++++
+  
+
 write.csv(proxy_hemi,"proxy_hemi.csv")
 write.csv(model_hemi,"model_hemi.csv")
 
+
+diff_hemi$Global <- 0
+diff_hemi$time <- proxy_hemi$time
 for(row in 1:220){
-  for(col in 2:4){
+  for(col in 2:5){
     diff_hemi[row,col] <- as.numeric(model_hemi[row,col]) - as.numeric(proxy_hemi[row,col])
   }
 }
