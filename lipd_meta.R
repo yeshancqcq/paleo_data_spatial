@@ -1,4 +1,4 @@
-x = paste("~/Downloads/lipd/all/",filenames[2],sep="")
+x = paste("~/Downloads/lipd/all/",filenames[104],sep="")
 D = readLipd(path = toString(x))
 
 setwd("~/Documents/github/paleo_data_spatial")
