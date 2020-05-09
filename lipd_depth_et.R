@@ -36,11 +36,11 @@ for(i in 1:length(filenames)){
                          notes = NA)
     if(length(D[["chronData"]][[1]][["measurementTable"]][[1]][["depth"]][["values"]])>0){
       output$depth = D[["chronData"]][[1]][["measurementTable"]][[1]][["depth"]][["values"]]
-      output$depth_unit[1] = D[["chronData"]][[1]][["measurementTable"]][[1]][["depth"]][["units"]]
+      output$depth_unit = toString(D[["chronData"]][[1]][["measurementTable"]][[1]][["depth"]][["units"]])
     }
     if(length(D[["chronData"]][[1]][["measurementTable"]][[1]][["depthMid"]][["values"]])>0){
       output$depth = D[["chronData"]][[1]][["measurementTable"]][[1]][["depthMid"]][["values"]]
-      output$depth_unit[1] = D[["chronData"]][[1]][["measurementTable"]][[1]][["depthMid"]][["units"]]
+      output$depth_unit = D[["chronData"]][[1]][["measurementTable"]][[1]][["depthMid"]][["units"]]
     }
     if(length(D[["chronData"]][[1]][["measurementTable"]][[1]][["age_type"]][["values"]])>0){
       output$age_type = D[["chronData"]][[1]][["measurementTable"]][[1]][["age_type"]][["values"]]
@@ -51,16 +51,16 @@ for(i in 1:length(filenames)){
     if(length(D[["chronData"]][[1]][["measurementTable"]][[1]][["age"]][["values"]])>0){
       output$age = D[["chronData"]][[1]][["measurementTable"]][[1]][["age"]][["values"]]
       if(length( D[["chronData"]][[1]][["measurementTable"]][[1]][["age"]][["units"]])>0){
-        output$age_unit[1] = D[["chronData"]][[1]][["measurementTable"]][[1]][["age"]][["units"]]
+        output$age_unit = D[["chronData"]][[1]][["measurementTable"]][[1]][["age"]][["units"]]
       }
     }
     if(length(D[["chronData"]][[1]][["measurementTable"]][[1]][["ageHi"]][["values"]])>0){
       output$age_high = D[["chronData"]][[1]][["measurementTable"]][[1]][["ageHi"]][["values"]]
-      output$age_high_unit[1] = D[["chronData"]][[1]][["measurementTable"]][[1]][["ageHi"]][["units"]]
+      output$age_high_unit = D[["chronData"]][[1]][["measurementTable"]][[1]][["ageHi"]][["units"]]
     }
     if(length(D[["chronData"]][[1]][["measurementTable"]][[1]][["ageLow"]][["values"]])>0){
       output$age_low = D[["chronData"]][[1]][["measurementTable"]][[1]][["ageLow"]][["values"]]
-      output$age_low_unit[1] = D[["chronData"]][[1]][["measurementTable"]][[1]][["ageLow"]][["units"]]
+      output$age_low_unit = D[["chronData"]][[1]][["measurementTable"]][[1]][["ageLow"]][["units"]]
     }
     if(length(D[["chronData"]][[1]][["measurementTable"]][[1]][["thickness"]][["values"]])>0){
       output$thickness = D[["chronData"]][[1]][["measurementTable"]][[1]][["thickness"]][["values"]]
@@ -68,11 +68,11 @@ for(i in 1:length(filenames)){
     }
     if(length(D[["chronData"]][[1]][["measurementTable"]][[1]][["1SD"]][["values"]])>0){
       output$sd = D[["chronData"]][[1]][["measurementTable"]][[1]][["1SD"]][["values"]]
-      output$sd_unit[1] = D[["chronData"]][[1]][["measurementTable"]][[1]][["1SD"]][["units"]]
+      output$sd_unit = D[["chronData"]][[1]][["measurementTable"]][[1]][["1SD"]][["units"]]
     }
     if(length(D[["chronData"]][[1]][["measurementTable"]][[1]][["SD"]][["values"]])>0){
       output$sd = D[["chronData"]][[1]][["measurementTable"]][[1]][["SD"]][["values"]]
-      output$sd_unit[1] = D[["chronData"]][[1]][["measurementTable"]][[1]][["SD"]][["units"]]
+      output$sd_unit = D[["chronData"]][[1]][["measurementTable"]][[1]][["SD"]][["units"]]
     }
     if(length(D[["chronData"]][[1]][["measurementTable"]][[1]][["material"]][["values"]])>0){
       output$material = D[["chronData"]][[1]][["measurementTable"]][[1]][["material"]][["values"]]
@@ -88,7 +88,7 @@ for(i in 1:length(filenames)){
     }
     if(length(D[["chronData"]][[1]][["measurementTable"]][[1]][["reservoirAge"]][["values"]])>0){
       output$reservoir_age = D[["chronData"]][[1]][["measurementTable"]][[1]][["reservoirAge"]][["values"]]
-      output$reseervoir_age_unit[1] = D[["chronData"]][[1]][["measurementTable"]][[1]][["reservoirAge"]][["units"]]
+      output$reseervoir_age_unit = toString(D[["chronData"]][[1]][["measurementTable"]][[1]][["reservoirAge"]][["units"]])
     }
     
   } else {
